@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
+
+// Global theme controller
+ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'E-Canteen',
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, currentMode, _) {
+        return MaterialApp(
+          title: 'E-Canteen',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            brightness: Brightness.light,
+            primarySwatch: Colors.deepOrange,
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            primarySwatch: Colors.deepOrange,
+          ),
+          themeMode: currentMode,
+          home: const HomeScreen(),
+        );
+      },
     );
   }
 }
@@ -27,13 +43,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  int _cartItemCount = 3; // Dummy cart item count for badge
+  int _cartItemCount = 3; // Dummy cart item count
 
   final List<Widget> _screens = [
     MenuScreen(),
     CartScreen(),
     OrderHistoryScreen(),
   ];
+
+  bool get isDarkMode => themeNotifier.value == ThemeMode.dark;
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +95,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
             ],
           ),
+
+          // Popup Menu (3-dot)
           PopupMenuButton<String>(
             onSelected: (value) {
-              if (value == 'logout') {
-                // Dummy logout logic
+              if (value == 'theme') {
+                setState(() {
+                  themeNotifier.value = isDarkMode
+                      ? ThemeMode.light
+                      : ThemeMode.dark;
+                });
+              } else if (value == 'logout') {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -90,6 +115,22 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
             itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'theme',
+                child: Row(
+                  children: [
+                    Icon(
+                      isDarkMode
+                          ? Icons.light_mode
+                          : Icons.dark_mode,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      isDarkMode ? 'Light Mode' : 'Dark Mode',
+                    ),
+                  ],
+                ),
+              ),
               const PopupMenuItem(
                 value: 'logout',
                 child: Row(
@@ -163,7 +204,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Login Screen'),
       ),
