@@ -122,7 +122,7 @@ class MenuData {
           description: 'Aromatic basmati rice with tender chicken and spices',
           price: 250.0,
           imageUrl:
-              'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+              'https://tse1.mm.bing.net/th/id/OIP.CMV98hR5u-F4o_B_yPT7zgHaE8?pid=Api&P=0&h=220',
           category: 'Main Course',
         ),
         FoodItem(
@@ -181,8 +181,8 @@ class MenuData {
         ),
         FoodItem(
           id: '8',
-          name: 'Chole Bhature',
-          description: 'Highly delisious food with less oil.',
+          name: 'Mango Lassi',
+          description: 'Refreshing yogurt drink with fresh mango',
           price: 60.0,
           imageUrl:
               'https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
@@ -1074,7 +1074,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: primaryOrange, width: 2),
+                              borderSide:
+                                  BorderSide(color: primaryOrange, width: 2),
                             ),
                             filled: true,
                             fillColor: Colors.grey[50],
@@ -1119,7 +1120,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: primaryOrange, width: 2),
+                              borderSide:
+                                  BorderSide(color: primaryOrange, width: 2),
                             ),
                             filled: true,
                             fillColor: Colors.grey[50],
@@ -1194,7 +1196,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Expanded(child: Divider(color: Colors.grey[400])),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
                                 'OR',
                                 style: TextStyle(
@@ -1216,13 +1219,15 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: OutlinedButton.icon(
                                 onPressed: () {
                                   // Google login simulation
-                                  AuthService.login('Google User', 'user@gmail.com');
+                                  AuthService.login(
+                                      'Google User', 'user@gmail.com');
                                   Navigator.pop(context);
                                 },
                                 icon: const Icon(Icons.g_mobiledata, size: 24),
                                 label: const Text('Google'),
                                 style: OutlinedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 12),
                                   side: BorderSide(color: primaryOrange),
                                   foregroundColor: primaryOrange,
                                   shape: RoundedRectangleBorder(
@@ -1236,13 +1241,15 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: OutlinedButton.icon(
                                 onPressed: () {
                                   // Facebook login simulation
-                                  AuthService.login('Facebook User', 'user@facebook.com');
+                                  AuthService.login(
+                                      'Facebook User', 'user@facebook.com');
                                   Navigator.pop(context);
                                 },
                                 icon: const Icon(Icons.facebook, size: 24),
                                 label: const Text('Facebook'),
                                 style: OutlinedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 12),
                                   side: BorderSide(color: primaryOrange),
                                   foregroundColor: primaryOrange,
                                   shape: RoundedRectangleBorder(
@@ -1277,7 +1284,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => const SignUpScreen(),
+                                        builder: (context) =>
+                                            const SignUpScreen(),
                                       ),
                                     );
                                   },
@@ -1310,7 +1318,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
@@ -1451,13 +1460,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           decoration: InputDecoration(
                             labelText: 'Full Name',
                             hintText: 'Enter your full name',
-                            prefixIcon: Icon(Icons.person, color: primaryOrange),
+                            prefixIcon:
+                                Icon(Icons.person, color: primaryOrange),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: primaryOrange, width: 2),
+                              borderSide:
+                                  BorderSide(color: primaryOrange, width: 2),
                             ),
                             filled: true,
                             fillColor: Colors.grey[50],
@@ -1485,7 +1496,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: primaryOrange, width: 2),
+                              borderSide:
+                                  BorderSide(color: primaryOrange, width: 2),
                             ),
                             filled: true,
                             fillColor: Colors.grey[50],
@@ -1530,7 +1542,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: primaryOrange, width: 2),
+                              borderSide:
+                                  BorderSide(color: primaryOrange, width: 2),
                             ),
                             filled: true,
                             fillColor: Colors.grey[50],
@@ -1555,7 +1568,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           decoration: InputDecoration(
                             labelText: 'Confirm Password',
                             hintText: 'Re-enter your password',
-                            prefixIcon: Icon(Icons.lock_outline, color: primaryOrange),
+                            prefixIcon:
+                                Icon(Icons.lock_outline, color: primaryOrange),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _obscureConfirmPassword
@@ -1565,7 +1579,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  _obscureConfirmPassword = !_obscureConfirmPassword;
+                                  _obscureConfirmPassword =
+                                      !_obscureConfirmPassword;
                                 });
                               },
                             ),
@@ -1574,7 +1589,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide(color: primaryOrange, width: 2),
+                              borderSide:
+                                  BorderSide(color: primaryOrange, width: 2),
                             ),
                             filled: true,
                             fillColor: Colors.grey[50],
@@ -1626,13 +1642,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
-                                              title: const Text('Terms & Conditions'),
+                                              title: const Text(
+                                                  'Terms & Conditions'),
                                               content: const Text(
                                                 'By using E-Canteen, you agree to our terms and conditions. This includes proper use of the app, payment policies, and privacy guidelines.',
                                               ),
                                               actions: [
                                                 TextButton(
-                                                  onPressed: () => Navigator.pop(context),
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
                                                   child: const Text('OK'),
                                                 ),
                                               ],
@@ -1653,13 +1671,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
-                                              title: const Text('Privacy Policy'),
+                                              title:
+                                                  const Text('Privacy Policy'),
                                               content: const Text(
                                                 'E-Canteen respects your privacy. We collect and use your information only for providing better service and will not share it with third parties without your consent.',
                                               ),
                                               actions: [
                                                 TextButton(
-                                                  onPressed: () => Navigator.pop(context),
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
                                                   child: const Text('OK'),
                                                 ),
                                               ],
